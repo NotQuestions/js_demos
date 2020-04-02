@@ -41,20 +41,20 @@
 
 
 // - створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше
-let min=minMax(42232322, 1321, 321132312, 312312, 123132);
-
-function minMax(...mas) {
-    let max = mas[0];
-    let min = mas[0];
-    for (const numb of mas) {
-        max = max > numb ? max : numb;
-        min = min < numb ? min : numb;
-    }
-    console.log(max);
-    return min;
-}
-
-console.log(min);
+// let min=minMax(42232322, 1321, 321132312, 312312, 123132);
+//
+// function minMax(...mas) {
+//     let max = mas[0];
+//     let min = mas[0];
+//     for (const numb of mas) {
+//         max = max > numb ? max : numb;
+//         min = min < numb ? min : numb;
+//     }
+//     console.log(max);
+//     return min;
+// }
+//
+// console.log(min);
 
 
 // - створити функцію яка виводить масив
@@ -69,36 +69,101 @@ console.log(min);
 //
 // }
 
-// - створити функцію яка повертає найбільше число з масиву
-function maxMas(mas) {
-    let max = mas[0];
-    for (const numb of mas) {
-        max = max > numb ? max : numb;
-    }
-    return max;
-}
-
-// - створити функцію яка повертає найменьше число з масиву
-function minMas(mas) {
-    let min = mas[0];
-    for (const numb of mas) {
-        min = min < numb ? min : numb;
-    }
-    return min;
-}
+// // - створити функцію яка повертає найбільше число з масиву
+// function maxMas(mas) {
+//     let max = mas[0];
+//     for (const numb of mas) {
+//         max = max > numb ? max : numb;
+//     }
+//     return max;
+// }
+//
+// // - створити функцію яка повертає найменьше число з масиву
+// function minMas(mas) {
+//     let min = mas[0];
+//     for (const numb of mas) {
+//         min = min < numb ? min : numb;
+//     }
+//     return min;
+// }
 // - створити функцію яка приймає масив чисел
+// mas();
+// function mas(arr) {
+// }
+
 
 // - створити функцію яка скаладає значення елементів масиву та повертає його.
-// - створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень.
+// let mas2=[2,3,4,5,6,7,8];
+//
+// function sumMas(arr) {
+//     let sum=0;
+//     console.log(arr);
+//     for (const element of arr) {
+//         sum+=element;
+//     }
+//     return sum;
+// }
+//
+// console.log(sumMas(mas2))
+
+// // - створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень.
+// medVal([22,3,132,2342,4234,243,324]);
+// function medVal(arr) {
+//     let sum=0;
+//     for (const element of arr) {
+//         sum+=element;
+//     }
+//     return (sum/arr.length);
+// }
+
+
 // - Створити функцію яка приймає масив будь яких объектів, та повертає значення кількості об'єктів в масиві
+// let mas = [22,3,132,2342,4234,243,324];
+//
+// console.log(leghtMas(mas));
+// function leghtMas(mas) {
+//
+//     if (Array.isArray(mas))  return mas.length;
+//
+//     return 'Ви передали не масив';
+// }
+
 // - Створити функцію яка приймає масив будь яких объектів, та повертає загальн кількість полів в них
+// let obj = {name: 'koly', skills: ['js', 'java' , 'spring' , 'maven']};
+// let obj2 = {name: 'Styopa', skills: ['C', 'pascal' , 'spring' , 'maven'], born: 1934, sex: 'male'};
+// let obj3 = {name: 'Nastya', skills: ['C++', 'Delphi' , 'spring' , 'maven'], status: true};
+// let mas= [obj,obj2,obj3]
+//
+// function lengthObjKeys(masObj) {
+//     let result = 0;
+//     for (const obj of masObj) {
+//         result+=Object.keys(obj).length
+//     }
+//     return result;
+// }
+//
+// console.log(lengthObjKeys(mas));
+//
+//
+
+
 // - створити функцію  яка скаладає значення елементів з однаковими індексами  та повертає новий результуючий масив.
 //     Приклад
-//     [1,2,3,4]
-//     [2,3,4,5]
+//     [1,2,3,4];
+//     [2,3,4,5];
 // результат
 //     [3,5,7,9]
+
+// function sumMas(mas1,mas2) {
+//     let result =[];
+//     for (let i = 0; i < mas1.length; i++) {
+//         result[i]=mas1[i]+mas2[i];
+//     }
+//     return result
+// }
+
 // - *** приймає масив та число "i", та міняє місцями об`єкт який знаходиться в індексі "i" на "i+1"
+
 // - *** створити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
 // Двожина масиву від 2 до 100
 // Приклад
@@ -106,10 +171,85 @@ function minMas(mas) {
 // [0,1,2,3,4] => [1,2,3,4,0]
 // [0,0,1,0]   => [1,0,0,0]
 //
+// let mas =[0,1,2,3,4];
+// console.log(mas);
+// lastEl(mas)
+// function lastEl(mas) {
+//     for (let i = 0; i<mas.length;i++) {
+//         if (mas[i]===0){
+//             mas.splice(i,1);
+//             mas.push(0)
+//         }
+//     }
+// }
+// console.log(mas);
+
+
 // Створити функцію яка :
 // - Додає в боді блок з текстом "Hello owu"
-// - Додає в боді елемент з текстом . Тип елементу та текст отримати через аргументи
+// function textOwuBody() {
+//     document.body.innerText+='Hello owu';
+// }
+
+// // - Додає в боді елемент з текстом . Тип елементу та текст отримати через аргументи
+// addBodyElement('h1','Text Owu')
+// function addBodyElement() {
+//     let elem = document.createElement(arguments[0]);
+//     elem.innerText= arguments[1];
+//     document.body.appendChild(elem);
+// }
+
 // - приймає масив автомобілів (можна взяти з попередніх дз ),та  індентифікатор елемнту в який потрібно додати список цих автомобілів.
+let cars = [
+    {
+        model: "Ford Fiesta",
+        class: "B",
+        year: 2018,
+        color: "Black",
+        price: 2000
+    },
+    {
+        model: "Bugatti w16",
+        class: "S",
+        year: 2018,
+        color: "Navi-Blue",
+        price: 4450000
+    },
+    {
+        model: "Geely CK",
+        class: "B",
+        year: 2015,
+        color: "Black",
+        price: 2542
+    },
+    {
+        model: "Audi A4",
+        class: "A",
+        year: 2017,
+        color: "Silver",
+        Price: 12310
+    },
+    {
+        nodel: "BMW M16",
+        class: "A",
+        year: 2019,
+        color: "Black",
+        price: 12340
+    }
+
+];
+// - приймає масив автомобілів (можна взяти з попередніх дз ),та  індентифікатор елемнту в який потрібно додати список цих автомобілів.
+f(cars,'body')
+function f(mas, elem) {
+
+    let element = document.getElementById(elem);
+
+    let json = (JSON.stringify(mas));
+    element.innerText+=json;
+
+}
+
+
 // Для кожного автомобіля створити свій блок, та додати його в елемент, індентифікатор якого ви отримали. Всі властивості авто в обному блоці
 // - приймає масив автомобілів (можна взяти з попередніх дз ),та  індентифікатор елемнту в який потрібно додати список цих автомобілів.
 // Для кожного автомобіля створити свій блок, та додати його в елемент, індентифікатор якого ви отримали.
