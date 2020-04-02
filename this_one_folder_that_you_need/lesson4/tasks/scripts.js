@@ -227,10 +227,10 @@ let cars = [
         class: "A",
         year: 2017,
         color: "Silver",
-        Price: 12310
+        price: 12310
     },
     {
-        nodel: "BMW M16",
+        model: "BMW M16",
         class: "A",
         year: 2019,
         color: "Black",
@@ -239,30 +239,64 @@ let cars = [
 
 ];
 // - приймає масив автомобілів (можна взяти з попередніх дз ),та  індентифікатор елемнту в який потрібно додати список цих автомобілів.
-f(cars,'body')
-function f(mas, elem) {
-
-    let element = document.getElementById(elem);
-
-    let json = (JSON.stringify(mas));
-    element.innerText+=json;
-
-}
-
-
 // Для кожного автомобіля створити свій блок, та додати його в елемент, індентифікатор якого ви отримали. Всі властивості авто в обному блоці
+// f(cars,'body');
+// function f(mas, elem) {
+//
+//     let element = document.getElementById(elem);
+//     for (const m of mas) {
+//         let div= document.createElement('div');
+//         div.innerHTML = `Модель: ${m.model}, Класс машини: ${m.class}, Рік випуску: ${m.year}, Колір: ${m.color}, Ціна: ${m.price}`;
+//         element.appendChild(div);
+//     }
+//
+// }
+
+
+
 // - приймає масив автомобілів (можна взяти з попередніх дз ),та  індентифікатор елемнту в який потрібно додати список цих автомобілів.
 // Для кожного автомобіля створити свій блок, та додати його в елемент, індентифікатор якого ви отримали.
 // Для кожної властивості створити всередені блока автомоблія свій блок
 //
+//
+// f(cars,'body');
+// function f(mas, elem) {
+//
+//     let element = document.getElementById(elem);
+//     for (const m of mas) {
+//         let div= document.createElement('div');
+//         div.innerHTML = `<div>Модель: ${m.model}</div> <div>Класс машини: ${m.class}</div> <div>Рік випуску: ${m.year}</div> <div>Колір: ${m.color}</div> <div>Ціна: ${m.price}</div>`;
+//         div.style.margin ='15px 0';
+//         element.appendChild(div);
+//     }
+//
+// }
+
 // (на основі минулого ДЗ)
 // **- функція приймає 2 масиви з рівною кількістю об'єктів та з'єднює в один об'єкт користувача та місто з відповідними "id" та "user_id",
 // та повертає масив цих з'єднаних об'єктів.
 // Приклад масивів:
 //             let usersWithId = [{id: 1, name: 'vasya', age: 31, status: false}, {id: 2, name: 'petya', age: 30, status: true}, {id: 3, name: 'kolya', age: 29, status: true}, {id: 4, name: 'olya', age: 28, status: false},];
 //             let citiesWithId = [{user_id: 3, country: 'USA', city: 'Portland'}, {user_id: 1, country: 'Ukraine', city: 'Ternopil'}, {user_id: 2, country: 'Poland', city: 'Krakow'}, {user_id: 4, country: 'USA', city: 'Miami'},];
-// Частковий приклад реультату:
+// //
+// let mas =skleykaMas(usersWithId,citiesWithId);
+// function skleykaMas(mas1,mas2) {
+//     let result = [];
+//     let tempObject={};
+//     for (const object1 of mas1) {
+//         for (var object2 of mas2) {
+//             if (object1.id===object2.user_id){
+//                 tempObject={...object1,...object2};
+//             }
+//         }
+//         result.push(tempObject);
+//     }
 //
+//     return result;
+//
+// }
+// console.log(mas);
+
 //
 //
 // ***- беремо завдання з правилами з укроку №3 :
@@ -307,10 +341,31 @@ function f(mas, elem) {
 // 				},
 //
 // 			];
-// "
+
+
+// "Є масив котрий характеризує правила. Створити скрипт який ітерує цей масив, та робить з кожне правило в окремому блоці.
+// При цому в блоці, номер правила записати в свій блок, текст правила записати в свій окремий блок.
+// Результатом відпрацювання скріпта повинна бути структура яка міститься в блоці wrap файла rule.html
+
+
+// function blokRusles() {
+//     let div = document.createElement('div');
+//     let h2 = document.createElement('h2');
+//     let p = document.createElement('p');
 //
+//     h2.innerHTML=`${arguments[0].title}`;
+//     p.innerHTML=`${arguments[0].body}`;
 //
+//     div.appendChild(h2);
+//     div.appendChild(p);
+//     return div;
+// }
 //
+// for (let i = 0; i < rules.length; i++) {
+//     let wrap = document.getElementById('wrap');
+//     let div = blokRusles(rules[i]);
+//     div.classList =`rules rule${i+1}`;
+//     wrap.appendChild(div);
+// }
 //
-//
-//
+// //
