@@ -435,46 +435,65 @@ let usersWithAddress = [{
 // Після того зробити перевірку досвіду ВСІХ наших водіїв. Якщо досвід водія менший за 5 років, але його вік більший за 25, то необідно відправити його на курси підвищення кваліфікації, що збільшить йому досвід на 1 рік.
 //     Також спробуйте порахувати суму, яку потрібно потратити для покупки всіх цих авто в циклі
 //
-function Car(model, power, owner, price, years){
-    this.model = model;
-    this.power = power;
-    this.owner = owner;
-    this.price = price;
-    this.years = years;
-}
-function Owner(name, age, expirience){
-    this.name = name;
-    this.age = age;
-    this.expirience = expirience;
-}
-let cars =[]
-for (let i = 0; i < 10; i++) {
-    let owner = new Owner('Petya'+i, 24+i,30+i);
-    let car = new Car('BMW X'+i, 150+10*i,owner,2000*i-152*i,2006+i);
-    if (i%2===0){
-        car.power*=1.1;
-    car.owner = new Owner('Vasya'+i,20,1+i*4/2);
-    }
-    cars.push(car);
-}
-console.log(cars);
-// for (let i = 0; i < cars.length; i+2) {
-//     cars[i].power*=1.1;
-//     cars[i].price*=1.05;
+// function Car(model, power, owner, price, years){
+//     this.model = model;
+//     this.power = power;
+//     this.owner = owner;
+//     this.price = price;
+//     this.years = years;
 // }
-let ownerOnCurse = cars.filter(car=>car.owner.expirience<5&&car.owner.age>25);
-ownerOnCurse.forEach(car=>car.owner.expirience++);
-let sum =cars.reduce((car1,car2)=>car1.price+car2.price);
-console.log(sum);
+// function Owner(name, age, expirience){
+//     this.name = name;
+//     this.age = age;
+//     this.expirience = expirience;
+// }
+// let cars =[]
+// for (let i = 0; i < 10; i++) {
+//     let owner = new Owner('Petya'+i, 24+i,30+i);
+//     let car = new Car('BMW X'+i, 150+10*i,owner,2000*i-152*i,2006+i);
+//     if (i%2===0){
+//         car.power*=1.1;
+//     car.owner = new Owner('Vasya'+i,20,1+i*4/2);
+//     }
+//     cars.push(car);
+// }
+// console.log(cars);
+// // for (let i = 0; i < cars.length; i+2) {
+// //     cars[i].power*=1.1;
+// //     cars[i].price*=1.05;
+// // }
+// let ownerOnCurse = cars.filter(car=>car.owner.expirience<5&&car.owner.age>25);
+// ownerOnCurse.forEach(car=>car.owner.expirience++);
+// let sum =cars.reduce((car1,car2)=>{
+//     return car1+car2.price
+// },0);
+// console.log(sum);
 
 // Задача: дан отсортированный по возрастанию массив целых чисел. Необходимо вернуть наименьший и наибольший индекс заданного элемента.
 //     Входные данные: arr — массив целых чисел значения которых по модулю не больше 10. Размер массива не более 10 элементов.
 //     Вывод: наибольший и наименьший индекс в массиве заданного элемента. Если такого элемента нет в массиве, выведите -1.
 //
+
+function findIndexElement(mas, key) {
+    let firstIndex = mas.findIndex((a) => a === key);
+
+    let lastIndex = mas.lastIndexOf(key);
+    if (firstIndex !== -1)
+        return firstIndex + "  " + lastIndex;
+    else {
+        return -1;
+    }
+
+}
+
+
 // Пример:
-//     Arr = [1, 2, 3, 4, 4, 4, 4, 7, 7, 9, 14]
+let Arr = [1, 2, 3, 4, 4, 4, 4, 7, 7, 9, 14];
+
 // 1. Key = 1
 // Answer: MinIndex = 0, MaxIndex = 0.
 // 2. Key = 4
 // Answer: MinIndex = 3, MaxIndex = 6.
 //
+
+console.log(findIndexElement(Arr, 10));
