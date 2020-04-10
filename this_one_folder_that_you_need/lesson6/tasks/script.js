@@ -316,7 +316,43 @@ let users = [{name: 'vasya', age: 31, status: false}, {name: 'petya', age: 30, s
 //
 //
 // - взять слдующий массив
-let usersWithAddress = [{id: 1, name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'aShevchenko', number: 16}}, {id: 2, name: 'petya', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 1}}, {id: 3, name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'wShevchenko', number: 121}}, {id: 4, name: 'olya', age: 28, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 90}}, {id: 5, name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'aShevchenko', number: 115}}, {id: 6, name: 'anya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 2}}, {id: 7, name: 'oleg', age: 28, status: false, address: {city: 'Lviv', street: 'aShevchenko', number: 22}}, {id: 8, name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'aShevchenko', number: 43}}, {id: 9, name: 'masha', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 12}}, {id: 10, name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'bShevchenko', number: 16}}, {id: 11, name: 'max', age: 31, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}}];
+let usersWithAddress = [{
+    id: 1,
+    name: 'vasya',
+    age: 31,
+    status: false,
+    address: {city: 'Lviv', street: 'aShevchenko', number: 16}
+}, {id: 2, name: 'petya', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 1}}, {
+    id: 3,
+    name: 'kolya',
+    age: 29,
+    status: true,
+    address: {city: 'Lviv', street: 'wShevchenko', number: 121}
+}, {id: 4, name: 'olya', age: 28, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 90}}, {
+    id: 5,
+    name: 'max',
+    age: 30,
+    status: true,
+    address: {city: 'Lviv', street: 'aShevchenko', number: 115}
+}, {id: 6, name: 'anya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 2}}, {
+    id: 7,
+    name: 'oleg',
+    age: 28,
+    status: false,
+    address: {city: 'Lviv', street: 'aShevchenko', number: 22}
+}, {id: 8, name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'aShevchenko', number: 43}}, {
+    id: 9,
+    name: 'masha',
+    age: 30,
+    status: true,
+    address: {city: 'Lviv', street: 'Shevchenko', number: 12}
+}, {id: 10, name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'bShevchenko', number: 16}}, {
+    id: 11,
+    name: 'max',
+    age: 31,
+    status: true,
+    address: {city: 'Lviv', street: 'Shevchenko', number: 121}
+}];
 // -- отсортировать его по id пользователей
 // usersWithAddress.sort((user1,user2)=> user1.id-user2.id);
 // // -- отсортировать его по id пользователей в обратном опрядке
@@ -343,21 +379,42 @@ let usersWithAddress = [{id: 1, name: 'vasya', age: 31, status: false, address: 
 //     return 0;
 // } );
 // -- отсортировать его по названию улицы  в алфавитном порядке
-usersWithAddress.sort((user1,user2)=>{
-    let street1=user1.address.street;
-    let street2=user2.address.street;
-    console.log(street1);
-    console.log(street2);
-    console.log(street1<street2);
-    if (street1<street2) return 1;
-    else return -1;
-} );
-console.log(usersWithAddress);
+
+//Чомусь не працю так як має працювати !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// usersWithAddress.sort((user1, user2) => {
+//     let street1 = user1.address.street;
+//     let street2 = user2.address.street;
+//     if (street1 < street2) return -1;
+//     else return 1;
+// });
 // -- отсортировать его по номеру дома по возрастанию
+// usersWithAddress.sort((user1, user2) => {
+//     return user1.address.number - user2.address.number;
+// });
+// console.log(usersWithAddress);
+
 // -- отфильтровать (оставить) тех кто младше 30
+// let newFilterAge =usersWithAddress.filter((user) => {
+//     return user.age<30?true:false;
+// });
+// console.log(newFilterAge);
+
 // -- отфильтровать (оставить) тех у кого отрицательный статус
+// let newFilterAge =usersWithAddress.filter((user) => {
+//     return !user.status;
+// });
+// console.log(newFilterAge);
 // -- отфильтровать (оставить) тех у кого отрицательный статус и младше 30 лет
+
+// let newFilterAge = usersWithAddress.filter((user) => {
+//     return !user.status && user.age < 30 ? true : false;
+// });
+// console.log(newFilterAge);
 // -- отфильтровать (оставить) тех у кого номер дома четный
+// let newFilterAge = usersWithAddress.filter((user) => {
+//     return user.address.number%2===0;
+// });
+// console.log(newFilterAge);
 //
 //
 // ===========================
@@ -366,6 +423,8 @@ console.log(usersWithAddress);
 //
 // Створити обєкт автомобіля з полями:
 //     Марка автомобля, потужність двигуна, власник, ціна, рік випуску.
+
+
 //     Власник автомобіля теж має бути обєкт, у якого є поля
 // Імя, вік, стаж водіння.
 //     Створити не менше 7 та не більше 20 машинок.
@@ -376,7 +435,38 @@ console.log(usersWithAddress);
 // Після того зробити перевірку досвіду ВСІХ наших водіїв. Якщо досвід водія менший за 5 років, але його вік більший за 25, то необідно відправити його на курси підвищення кваліфікації, що збільшить йому досвід на 1 рік.
 //     Також спробуйте порахувати суму, яку потрібно потратити для покупки всіх цих авто в циклі
 //
-//
+function Car(model, power, owner, price, years){
+    this.model = model;
+    this.power = power;
+    this.owner = owner;
+    this.price = price;
+    this.years = years;
+}
+function Owner(name, age, expirience){
+    this.name = name;
+    this.age = age;
+    this.expirience = expirience;
+}
+let cars =[]
+for (let i = 0; i < 10; i++) {
+    let owner = new Owner('Petya'+i, 24+i,30+i);
+    let car = new Car('BMW X'+i, 150+10*i,owner,2000*i-152*i,2006+i);
+    if (i%2===0){
+        car.power*=1.1;
+    car.owner = new Owner('Vasya'+i,20,1+i*4/2);
+    }
+    cars.push(car);
+}
+console.log(cars);
+// for (let i = 0; i < cars.length; i+2) {
+//     cars[i].power*=1.1;
+//     cars[i].price*=1.05;
+// }
+let ownerOnCurse = cars.filter(car=>car.owner.expirience<5&&car.owner.age>25);
+ownerOnCurse.forEach(car=>car.owner.expirience++);
+let sum =cars.reduce((car1,car2)=>car1.price+car2.price);
+console.log(sum);
+
 // Задача: дан отсортированный по возрастанию массив целых чисел. Необходимо вернуть наименьший и наибольший индекс заданного элемента.
 //     Входные данные: arr — массив целых чисел значения которых по модулю не больше 10. Размер массива не более 10 элементов.
 //     Вывод: наибольший и наименьший индекс в массиве заданного элемента. Если такого элемента нет в массиве, выведите -1.
