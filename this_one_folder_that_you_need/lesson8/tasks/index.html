@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -36,20 +37,35 @@
 
 <!--Для четвертого завдання-->
 <!--ФИО, номер, почта, фирма, отдел, день рождения-->
-<form action="" style="display: flex; flex-direction: column; width: 200px">
+<form action="" name = 'formUser'style="display: flex; flex-direction: column; width: 200px">
     <label for="Name">Name</label>
     <input type="text" id="Name">
     <label for="PhoneNumber">Phone</label>
-    <input type="text" id = "PhoneNumber">
+    <input type="text" id="PhoneNumber">
     <label for="Email">Email</label>
-    <input type="text" id = "Email">
+    <input type="text" id="Email">
     <label for="Company">Company</label>
-    <input type="text" id = "Company">
+    <input type="text" id="Company">
     <label for="Hotel">Hotel</label>
-    <input type="text" id = "Hotel">
+    <input type="text" id="Hotel">
     <label for="Born">Born</label>
-    <input type="text" id = "born">
+    <input type="text" id="born">
 </form>
+<button id="saveUser">Save User</button>
+<div id="users">
+    <table id = 'tableUsers'>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Company</th>
+            <th>Hotel</th>
+            <th>Born</th>
+        </tr>
+
+    </table>
+</div>
 
 <script>
     // - Дана textarea.
@@ -137,7 +153,19 @@
     // --Каждому контакту добавить кнопку для удаления контакта.
     // --Каждому контакту добавить кнопку редактироваиня. При нажати на нее появляется форма, в которой есть все необходимые инпуты для редактирования, которые уже заполнены данными объекта
     //
-
+    let tableUsers = document.getElementById('tableUsers');
+    let  saveUser = document.getElementById('saveUser');
+    let masUser = [];
+    saveUser.onclick = (ev)=>{
+        let formUser = document.forms.formUser;
+        let user = {};
+        for (const input of formUser) {
+            user[input.id] = input.value;
+        }
+        masUser.push(user)
+        localStorage.setItem('Users',JSON.stringify(masUser));
+        count++;
+    };
 
 </script>
 </body>
