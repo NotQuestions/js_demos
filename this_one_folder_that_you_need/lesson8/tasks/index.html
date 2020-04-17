@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--Для першого завдання-->
+<!--<textarea id="txt">dewa</textarea>-->
+
+<!--Для другого завдання-->
+<!--<form action="">-->
+<!--    <input type="text" name="tx">-->
+<!--    <input type="checkbox" name="ch">-->
+<!--    <input type="radio" name="rd">-->
+<!--    <input type="email" name="em">-->
+<!--    <input type="number" name="nmb">-->
+<!--</form>-->
+
+<!--Для третього завдання-->
+<!--<div>-->
+<!--    <div style="display: flex">-->
+
+<!--        <button id='left'>Left</button>-->
+<!--        <button id='right'>Right</button>-->
+
+<!--    </div>-->
+<!--    <div style="display: flex">-->
+
+<!--        <textarea id="text"></textarea>-->
+<!--        <button id="save">Chekpoint</button>-->
+
+<!--    </div>-->
+<!--</div>-->
+
+<!--Для четвертого завдання-->
+<!--ФИО, номер, почта, фирма, отдел, день рождения-->
+<form action="" style="display: flex; flex-direction: column; width: 200px">
+    <label for="Name">Name</label>
+    <input type="text" id="Name">
+    <label for="PhoneNumber">Phone</label>
+    <input type="text" id = "PhoneNumber">
+    <label for="Email">Email</label>
+    <input type="text" id = "Email">
+    <label for="Company">Company</label>
+    <input type="text" id = "Company">
+    <label for="Hotel">Hotel</label>
+    <input type="text" id = "Hotel">
+    <label for="Born">Born</label>
+    <input type="text" id = "born">
+</form>
+
+<script>
+    // - Дана textarea.
+    //     В неё вводится текст.
+    //     Сделайте так, чтобы после захода на эту страницу через некоторое время, введенный текст остался в textarea.
+
+    //     let textarea = document.getElementById('txt');
+    // if (localStorage.getItem('textarea')!==null){
+    //     textarea.innerText = localStorage.getItem('textarea');
+    // }
+    // textarea.oninput = (e)=>{
+    //     localStorage.setItem('textarea',e.target.value);
+    // };
+
+    // - Дана форма с инпутами, текстареа, чекбоксами, радио кнопочками, селектами и тп.
+    //     Пользователь вводит какие-то данные и закрывает страницу (не факт, что он заполнил всю форму).
+    // Сделайте так, чтобы при следующем заходе на страницу введенные им ранее данные стояли на своих местах.
+    //     Сделайте ваш скрипт как можно более универсальным.
+
+    // let forms = document.forms[0];
+    // for (const input of forms) {
+    //     if (localStorage.getItem(input.name) !== null) {
+    //         if (input.type === 'checkbox' || input.type === 'radio') {
+    //             let b = localStorage.getItem(input.name) === 'true';
+    //             console.log(b);
+    //             input.checked = b;
+    //         } else {
+    //             input.value = localStorage.getItem(input.name);
+    //         }
+    //
+    //     }
+    // }
+    // forms.oninput = (ev) => {
+    //
+    //     console.log(ev.target.checked);
+    //     let targ = ev.target;
+    //     if (targ.type === 'checkbox' || targ.type === 'radio') {
+    //         localStorage.setItem(targ.name, targ.checked);
+    //     } else {
+    //         localStorage.setItem(targ.name, targ.value);
+    //     }
+    //
+    // };
+    // localStorage.clear();
+
+    // -Дан текстареа. В него можно ввести данные, нажать кнопку "сохранить" и они "фикисруются" (в хранилище), затем поредактировать их, затем еще поредактировать и возможно еще.....
+    // Требование : хранить историю своих изменений (даже после перезагрузки страницы).
+    // Сверху над текстареа должны появится стрелочки, с помощью которых можно перемещаться по истории (не забудьте!чекпоинт истории - нажатеи кнопки сохранить).
+    //
+
+    // let save = document.getElementById('save');
+    // let textarea = document.getElementById('text');
+    // let left = document.getElementById('left');
+    // let right = document.getElementById('right');
+    // localStorage.setItem('id', 0);
+    //
+    // save.onclick = (ev) => {
+    //     let id = Number(localStorage.getItem('id'));
+    //     localStorage.setItem(localStorage.length++, textarea.value);
+    //     localStorage.setItem('id', ++id);
+    // }
+    //
+    // left.onclick = (ev) => {
+    //     let id = Number(localStorage.getItem('id')) ;
+    //     id <=1   ? id = localStorage.length-1 : id--;
+    //
+    //     let str = localStorage.getItem(id.toString());
+    //     textarea.value = str;
+    //     localStorage.setItem('id', id);
+    // };
+    //
+    // right.onclick = (ev) => {
+    //     let id = Number(localStorage.getItem('id'));
+    //     id >= localStorage.length-1? id = 1 : id++;
+    //
+    //     let str = localStorage.getItem(id.toString());
+    //     textarea.value = str;
+    //     localStorage.setItem('id', id);
+    // }
+
+
+    // - Реализуйте записную книгу, хранящую данные в локальном хранилище.
+    //     Данные которые надо сохранять : ФИО, номер, почта, фирма, отдел, день рождения
+    // Данные вводить через соответсвующую форму.
+    // --Каждому контакту добавить кнопку для удаления контакта.
+    // --Каждому контакту добавить кнопку редактироваиня. При нажати на нее появляется форма, в которой есть все необходимые инпуты для редактирования, которые уже заполнены данными объекта
+    //
+
+
+</script>
+</body>
+</html>
