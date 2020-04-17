@@ -35,8 +35,9 @@
 <!--    </div>-->
 <!--</div>-->
 
+
 <!--Для четвертого завдання-->
-<!--ФИО, номер, почта, фирма, отдел, день рождения-->
+
 <form action="" name='formUser' style="display: flex; flex-direction: column; width: 200px">
     <label for="Name">Name</label>
     <input type="text " id="Name">
@@ -51,20 +52,13 @@
     <label for="Born">Born</label>
     <input type="text" id="born">
 </form>
-<button id="saveUser">Save User</button>
+<button id="saveUser">New User</button>
+<button id="saveEdit" style="display: none">Save</button>
 <div id="divTable" style="margin-top: 30px;">
-    <!--    <table id = 'tableUsers'>-->
-    <!--        <tr>-->
-    <!--            <th>Id</th>-->
-    <!--            <th>Name</th>-->
-    <!--            <th>Phone</th>-->
-    <!--            <th>Email</th>-->
-    <!--            <th>Company</th>-->
-    <!--            <th>Hotel</th>-->
-    <!--            <th>Born</th>-->
-    <!--        </tr>-->
 
-    <!--    </table>-->
+<!--    -->
+
+
 </div>
 
 <script>
@@ -153,10 +147,20 @@
     // --Каждому контакту добавить кнопку для удаления контакта.
     // --Каждому контакту добавить кнопку редактироваиня. При нажати на нее появляется форма, в которой есть все необходимые инпуты для редактирования, которые уже заполнены данными объекта
     //
+    //
+    //
     let saveUser = document.getElementById('saveUser');
+    let saveEdit = document.getElementById('saveEdit');
     let masUser = [];
     let formUser = document.forms.formUser;
     let divTable = document.getElementById('divTable');
+
+
+    if (localStorage.getItem('Users')!==null){
+        masUser= JSON.parse(localStorage.getItem('Users'));
+        addUsersInTable(masUser);
+    }
+
 
     saveUser.onclick = (ev) => {
         let user = {};
@@ -168,10 +172,12 @@
             user[key] = value;
             if (value === "" || value === null) {
                 checkUser = false;
+                alert(`Будь-ласка заповніть форму ${key}`)
                 return;
             }
         }
         if (!checkUser) {
+
             return;
         }
         if (localStorage.getItem("Users") === null) {
@@ -198,13 +204,12 @@
                 td.innerHTML = user[key];
                 tr.appendChild(td);
             }
-            // let tdButton = document.createElement('td');
             let buttonDel = document.createElement("button");
             let buttonEdit = document.createElement('button');
             buttonDel.innerText = 'Delete';
             buttonEdit.innerText = 'Edit';
             buttonDel.style.padding = '6px';
-            buttonDel.style.padding = '6px';
+            buttonEdit.style.padding = '6px';
 
             // Button delete User
             buttonDel.onclick = (ev) => {
@@ -213,7 +218,32 @@
                 localStorage.setItem("Users", JSON.stringify(masUser));
                 addUsersInTable(masUser);
             };
+            // Button Edit User
+            buttonEdit.onclick = (ev) => {
+                for (const input of formUser) {
+                    for (const key in user){
+                        key===input.id?input.value=user[key]:true;
+                    }
+                }
+                saveEdit.style.display='inline-block';
+                saveEdit.onclick = (ev)=>{
+                    let index = masUser.indexOf(user);
+                    let editUser = {};
+                    for (const input of formUser) {
+                        let key = input.id;
+                        let value = input.value;
+                        editUser[key] = value;
+                    }
+                    masUser[index]=editUser;
+                    localStorage.setItem("Users", JSON.stringify(masUser));
+                    addUsersInTable(masUser);
+                    saveEdit.style.display = 'none';
+                };
+
+            };
+
             tr.appendChild(buttonDel);
+            tr.appendChild(buttonEdit);
             userTable.appendChild(tr);
         });
         if (document.querySelector("#divTable table") !== null) {
@@ -225,6 +255,8 @@
         return userTable;
 
     }
+
+
 
 
 </script>
