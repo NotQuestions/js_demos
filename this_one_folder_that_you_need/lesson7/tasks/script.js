@@ -427,19 +427,19 @@
 //
 //
 // // -- взять массив пользователей
-// let usersWithAddress = [
-//     {id:1,name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
-//     {id:2,name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}},
-//     {id:3,name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}},
-//     {id:4,name: 'olya', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 90}},
-//     {id:5,name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
-//     {id:6,name: 'anya', age: 31, status: false, address: {city: 'Kyiv', street: 'Shevchenko', number: 2}},
-//     {id:7,name: 'oleg', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 22}},
-//     {id:8,name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
-//     {id:9,name: 'masha', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 12}},
-//     {id:10,name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
-//     {id:11,name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
-// ];
+let usersWithAddress = [
+    {id:1,name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
+    {id:2,name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}},
+    {id:3,name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}},
+    {id:4,name: 'olya', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 90}},
+    {id:5,name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
+    {id:6,name: 'anya', age: 31, status: false, address: {city: 'Kyiv', street: 'Shevchenko', number: 2}},
+    {id:7,name: 'oleg', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 22}},
+    {id:8,name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
+    {id:9,name: 'masha', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 12}},
+    {id:10,name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
+    {id:11,name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
+];
 // // Создать три чекбокса. Каждый из них активирует фильтр для вышеуказаного массива. Фильтры могут работать как вместе так и по отдельности.
 // // 1й - отфильтровывает пользователей со статусом false (осталяет со статусом false)
 // // 2й - оставляет старше 29 лет включительно
@@ -447,93 +447,84 @@
 // // Данные выводить в документ
 // //
 //
-// let content = document.getElementById('content');
-//
-// let checkBox1 = document.createElement('input');
-// checkBox1.type = 'checkbox';
-// let checkBox2 = document.createElement('input');
-// checkBox2.type = 'checkbox';
-// let checkBox3 = document.createElement('input');
-// checkBox3.type = 'checkbox';
-// let button = document.createElement('button');
-// button.innerText = 'Start';
-//
-//
-//
-// let divUsers = document.createElement('div');
-// let divCheckBox = document.createElement('div');
-//
-// let label1 = document.createElement('label');
-// label1.innerText = '    False ';
-// let label2 = document.createElement('label');
-// label2.innerText = '    More 29 ';
-// let label3 = document.createElement('label');
-// label3.innerText = '    City Kiev ';
-// addDiv(usersWithAddress);
-//
-// function addDiv(mas){
-//     mas.forEach(user=>{
-//         let p = document.createElement('p');
-//         p.innerHTML = JSON.stringify(user);
-//         divUsers.appendChild(p);
-//     });
-//
-// }
-//
-// button.onclick = (ev)=>{
-//     let mas = usersWithAddress;
-//     if (checkBox1.checked){
-//
-//          mas =mas.filter(a=>{
-//           return  a.status===false;
-//         });
-//         console.log(mas);
-//         divUsers.innerText="";
-//         addDiv(mas);
-//
-//         console.log(false);
-//     };
-//     if (checkBox2.checked){
-//
-//         mas =mas.filter(a=>{
-//             return  a.age>=29;
-//         });
-//         console.log(mas);
-//         divUsers.innerText="";
-//         addDiv(mas);
-//
-//         console.log(false);
-//     };
-//     if (checkBox3.checked){
-//
-//         mas =mas.filter(a=>{
-//             return  a.address.city==='Kyiv';
-//         });
-//         console.log(mas);
-//         divUsers.innerText="";
-//         addDiv(mas);
-//
-//         console.log(false);
-//     }
-//     if (!checkBox1.checked&&!checkBox2.checked&&!checkBox3.checked){
-//         addDiv(usersWithAddress);
-//     }
-//
-// };
-//
-//
-//
-//
-// divCheckBox.appendChild(label1);
-// divCheckBox.appendChild(checkBox1);
-// divCheckBox.appendChild(label2);
-// divCheckBox.appendChild(checkBox2);
-// divCheckBox.appendChild(label3);
-// divCheckBox.appendChild(checkBox3);
-// divCheckBox.appendChild(button);
-// content.appendChild(divUsers);
-// content.appendChild(divCheckBox);
-//
+let content = document.getElementById('content');
+
+let checkBox1 = document.createElement('input');
+checkBox1.type = 'checkbox';
+let checkBox2 = document.createElement('input');
+checkBox2.type = 'checkbox';
+let checkBox3 = document.createElement('input');
+checkBox3.type = 'checkbox';
+let button = document.createElement('button');
+button.innerText = 'Start';
+
+
+
+let divUsers = document.createElement('div');
+let divCheckBox = document.createElement('div');
+
+let label1 = document.createElement('label');
+label1.innerText = '    False ';
+let label2 = document.createElement('label');
+label2.innerText = '    More 29 ';
+let label3 = document.createElement('label');
+label3.innerText = '    City Kiev ';
+addDiv(usersWithAddress);
+
+
+
+function addDiv(mas){
+    mas.forEach(user=>{
+        let p = document.createElement('p');
+        p.innerHTML = JSON.stringify(user);
+        divUsers.appendChild(p);
+    });
+
+}
+
+button.onclick = (ev)=>{
+    let mas = usersWithAddress;
+    if (checkBox1.checked){
+
+         mas =mas.filter(a=> a.status===false);
+        divUsers.innerText="";
+        addDiv(mas);
+
+        console.log(false);
+    };
+    if (checkBox2.checked){
+
+        mas =mas.filter(a=> a.age>=29);
+        divUsers.innerText="";
+        addDiv(mas);
+
+    };
+    if (checkBox3.checked){
+
+        mas =mas.filter(a=>  a.address.city==='Kyiv');
+        divUsers.innerText="";
+        addDiv(mas);
+
+    }
+    if (!checkBox1.checked&&!checkBox2.checked&&!checkBox3.checked){
+        addDiv(usersWithAddress);
+    }
+
+};
+
+
+
+
+divCheckBox.appendChild(label1);
+divCheckBox.appendChild(checkBox1);
+divCheckBox.appendChild(label2);
+divCheckBox.appendChild(checkBox2);
+divCheckBox.appendChild(label3);
+divCheckBox.appendChild(checkBox3);
+divCheckBox.appendChild(button);
+content.appendChild(divUsers);
+content.appendChild(divCheckBox);
+
 // //
 // //
 // // *****(Прям овердоз с рекурсией) Создать функцию которая принимает какой-либо элемент DOM-структуры .Функция создает в боди 2 кнопки (назад/вперед)
@@ -549,25 +540,25 @@
 // document.body.onmouseup = (ev)=>{
 //     console.log(document.getSelection().toString());
 // };
-document.body.onmouseup = function (e) {
-    let allText = e.target.innerHTML;
-    let select = document.getSelection();
-    let str = select.toString().bold();
-
-    let first = select.anchorOffset < select.focusOffset ? select.anchorOffset : select.focusOffset;
-    let last = select.anchorOffset > select.focusOffset ? select.anchorOffset : select.focusOffset;
-
-    let a = allText.slice(0, first);
-    let a2 = allText.slice(last, allText.length);
-
-    e.target.innerHTML = `${a}${str}${a2}`;
-
-
-};
-
-document.body.onmousedown= (ev)=>{
-    let s = ev.target.innerHTML;
-    ev.target.innerHTML=s.replace(/<b>|<\/b>/g,'');
-};
-
+// document.body.onmouseup = function (e) {
+//     let allText = e.target.innerHTML;
+//     let select = document.getSelection();
+//     let str = select.toString().bold();
+//
+//     let first = select.anchorOffset < select.focusOffset ? select.anchorOffset : select.focusOffset;
+//     let last = select.anchorOffset > select.focusOffset ? select.anchorOffset : select.focusOffset;
+//
+//     let a = allText.slice(0, first);
+//     let a2 = allText.slice(last, allText.length);
+//
+//     e.target.innerHTML = `${a}${str}${a2}`;
+//
+//
+// };
+//
+// document.body.onmousedown= (ev)=>{
+//     let s = ev.target.innerHTML;
+//     ev.target.innerHTML=s.replace(/<b>|<\/b>/g,'');
+// };
+//
 
