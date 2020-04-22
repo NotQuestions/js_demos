@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+    // Зробити свій розпоряжок дня.
+    //
+    //     Мають бути функції, які є асинхронними (мають сетТаймАут або сетІнтервал) які описують якусь певну вашу дію в день.
+    //     Наприклад функція прокинутись триває 1с, поїсти - 0,5с. Доїхати до роботи - 2с. Пообідати - 1с.
+    //     Зробити таких функцій в районі 10 штук. Функція має приймати параметр, який буде відповідати за успішне чи не успішне виконання.
+    //     Далі виконати їх в тій послідовності, в якій ви виконуєте їх у свій звичайний день.
+    //
+    //     Тобто, як приклад
+    // Прокинулись - Поснідали - Зібрались - ПОїхали на роботу - Працююєте - Пообідали - Працюєте - Випили кави - Працюєте - Поїхали до дому - Повчились - Лягли спати.
+    //
+    //     Кожна функція має мати якесь успіше або не успішне виконання. Тобто можливий варіант, що при виконанні функції доїхати на роботу ви стали в заторі і не попали на роботу. Або йдучи на обід ви забули гаманець і лишились голодні.
+
+    // Прокинувся - Зробив зарядку - Сходив в душ - Поснідав - Включив ноутбук  - Зробив ДЗ - Пообідав - Подивився лекцію  - Ляг спати.
+
+    // Перший варіант з промісами
+    // let randShans = 0.9;
+    //
+    // function wakeUp() {
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             randShans > Math.random()
+    //                 ? resolve('Ya prosnyvsa')
+    //                 : reject('Prospaw cily den`');
+    //         })
+    //
+    //     }, 1000);
+    // };
+    //
+    // function morningExercise() {
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             randShans > Math.random()
+    //                 ? resolve('Zrobyv zaryadku')
+    //                 : reject('Ne hvatylo syl na zaryadku');
+    //         })
+    //
+    //     }, Math.random() * 1500);
+    // };
+    //
+    // function shower() {
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             randShans > Math.random()
+    //                 ? resolve('Pryinyav dush')
+    //                 : reject('Nemae vody');
+    //         })
+    //
+    //     }, Math.random() * 1500);
+    // };
+    //
+    // function breakfast() {
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             randShans > Math.random()
+    //                 ? resolve('Posnidav')
+    //                 : reject('Zalyshuvsyz golodnyi');
+    //         })
+    //
+    //     }, Math.random() * 1500);
+    // };
+    //
+    //
+    // function vLaptop() {
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             randShans > Math.random()
+    //                 ? resolve('Vkluchuv Nout')
+    //                 : reject('Nout zlamavsya');
+    //         })
+    //
+    //     }, Math.random() * 1500);
+    // };
+    //
+    // function homeWork() {
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             randShans > Math.random()
+    //                 ? resolve('Zrobyv domashku')
+    //                 : reject('Ne zmig zrobyty domashku');
+    //         })
+    //
+    //     }, Math.random() * 1500);
+    // };
+    //
+    // function lunch() {
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             randShans > Math.random()
+    //                 ? resolve('Poobidav ')
+    //                 : reject('Nemae produktiv, treba shodytu v magazyn');
+    //         })
+    //
+    //     }, Math.random() * 1500);
+    // };
+    //
+    //
+    //
+    // function watchLesson() {
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             randShans > Math.random()
+    //                 ? resolve('Poduvyvsya lekciu ')
+    //                 : reject('Vidkluchyly internet');
+    //         })
+    //
+    //     }, Math.random() * 1500);
+    // };
+    //
+    //
+    // function sleep() {
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             randShans > Math.random()
+    //                 ? resolve('Lyag spaty ')
+    //                 : reject('Nema koly spaty treba robyty domashne');
+    //         })
+    //
+    //     }, Math.random() * 1500);
+    // };
+    //
+    // wakeUp()
+    //     .then(result => {
+    //         console.log(result);
+    //         return morningExercise();
+    //     })
+    //     .then(result => {
+    //         console.log(result);
+    //         return shower();
+    //     })
+    //     .then(result => {
+    //         console.log(result);
+    //         return breakfast();
+    //     })
+    //     .then(result => {
+    //         console.log(result);
+    //         return vLaptop();
+    //     })
+    //     .then(result => {
+    //         console.log(result);
+    //         return homeWork();
+    //     })
+    //     .then(result => {
+    //         console.log(result);
+    //         return lunch();
+    //     })
+    //     .then(result => {
+    //         console.log(result);
+    //         return watchLesson();
+    //     })
+    //     .then(result => {
+    //         console.log(result);
+    //         return sleep();
+    //     })
+    //     .catch(error=>{
+    //         console.log('Error:',error);
+    //     });
+
+    // Другий варіант з колбеками
+
+    let randShans = 0.9;
+
+    function wakeUp(error, cb) {
+        setTimeout(() => {
+            if (error) {
+                cb(error);
+            } else {
+                randShans > Math.random()
+                    ? cb(null, 'Ya prosnyvsya')
+                    : cb('Prospaw cily den`');
+
+            }
+
+
+        }, 1000);
+    };
+
+    function morningExercise(error, cb) {
+        setTimeout(() => {
+
+            if (error) {
+                cb(error);
+            } else {
+                randShans > Math.random()
+                    ? cb(null, 'Zrobyv zaryadku')
+                    : cb('Ne hvatylo syl na zaryadku');
+            }
+
+        }, Math.random() * 1500);
+
+
+    };
+
+    function shower(error, cb) {
+
+        setTimeout(() => {
+
+            if (error) {
+                cb(error);
+            } else {
+                randShans > Math.random()
+                    ? cb(null, 'Pryinyav dush')
+                    : cb('Nemae vody');
+            }
+
+        }, Math.random() * 1500);
+
+    };
+
+    function breakfast(error, cb) {
+
+        setTimeout(() => {
+            if (error) {
+                cb('error');
+            } else {
+                randShans > Math.random()
+                    ? cb(null, 'Posnidav')
+                    : cb('Zalyshuvsya golodnyi');
+            }
+
+        }, Math.random() * 1500);
+
+    };
+
+
+    function vLaptop(error, cb) {
+        setTimeout(() => {
+            if (error) {
+                cb('error');
+            } else {
+                randShans > Math.random()
+                    ? cb(null, 'Vkluchuv Nout')
+                    : cb('Nout zlamavsya');
+            }
+
+        }, Math.random() * 1500);
+
+    };
+
+    function homeWork(error, cb) {
+        setTimeout(() => {
+            if (error) {
+                cb('error');
+            } else {
+                randShans > Math.random()
+                    ? cb(null, 'Zrobyv domashku')
+                    : cb('Ne zmig zrobyty domashku');
+            }
+
+        }, Math.random() * 1500);
+
+
+    };
+
+    function lunch(error, cb) {
+        setTimeout(() => {
+            if (error) {
+                cb('error');
+            } else {
+                randShans > Math.random()
+                    ? cb(null, 'Poobidav ')
+                    : cb('Nemae produktiv, treba shodytu v magazyn');
+            }
+
+        }, Math.random() * 1500);
+
+    };
+
+
+    function watchLesson(error, cb) {
+
+        setTimeout(() => {
+            if (error) {
+                cb('error');
+            }else {
+                randShans > Math.random()
+                    ? cb(null, 'Poduvyvsya lekciu ')
+                    : cb('Vidkluchyly internet');
+            }
+
+        }, Math.random() * 1500);
+
+
+    };
+
+
+    function sleep(error, cb) {
+
+        setTimeout(() => {
+            if (error) {
+                cb('error');
+            }else {
+                randShans > Math.random()
+                    ? cb(null, 'Lyag spaty ')
+                    : cb('Nema koly spaty treba robyty domashne');
+            }
+
+        }, Math.random() * 1500);
+
+    };
+
+
+    wakeUp(null, (error, done) => {
+        if (error) {
+            console.log('Error: ',error);
+        } else {
+            console.log('done:',done);
+            morningExercise(null, (error, done) => {
+                if (error) {
+                    console.log('Error: ',error);
+                } else {
+                    console.log('done:',done);
+                    shower(null, (error, done) => {
+                        if (error) {
+                            console.log('Error: ',error);
+                        } else {
+                            console.log('done:',done);
+                            breakfast(null, (error, done) => {
+                                if (error) {
+                                    console.log('Error: ',error);
+                                } else {
+                                    console.log('done:',done);
+                                    vLaptop(null, (error, done) => {
+                                        if (error) {
+                                            console.log('Error: ',error);
+                                        } else {
+                                            console.log('done:',done);
+                                            homeWork(null, (error, done) => {
+                                                if (error) {
+                                                    console.log('Error: ',error);
+                                                } else {
+                                                    console.log('done:',done);
+                                                    lunch(null, (error, done) => {
+                                                        if (error) {
+                                                            console.log('Error: ',error);
+                                                        } else {
+                                                            console.log('done:',done);
+                                                            watchLesson(null, (error, done) => {
+                                                                if (error) {
+                                                                    console.log('Error: ',error);
+                                                                } else {
+                                                                    console.log('done:',done);
+                                                                    sleep(null, (error, done) => {
+                                                                        if (error) {
+                                                                            console.log('Error: ',error);
+                                                                        } else {
+                                                                            console.log('done:',done);
+                                                                        }
+                                                                    })
+                                                                }
+                                                            })
+                                                        }
+                                                    })
+                                                }
+
+                                            })
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
+            })
+        }
+
+    });
+
+
+</script>
+</body>
+</html>

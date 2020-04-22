@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<audio id="audio"></audio>
+<audio id="audio2"></audio>
+<script>
+
+
+//    Маєш 2 масива з цифрами.
+//        Любими.
+//        Треба знайти чи перший масив має в собі квадрати іншого масиву. Порядок циферок не важливий. І якщо це так, то вивести true, якщо ні, вивести false
+//    Наприклад
+//        [1,2,3] [9,1,4] —> TRUE
+//        [2,1,2] [1,1,4] —-> FALSE
+//        [1,2,3,5] [25, 9, 1, 4, 4] ——> FALSE
+//
+//
+// let lMas= [1,2,3,5];
+// let lMas2= [25, 9, 1, 4, 4];
+//
+//    console.log( perevirkaMas(lMas,lMas2));
+// function perevirkaMas(mas,mas2) {
+//     if (mas.length!==mas2.length) return false
+//     let result =true;
+//     let newMas=mas.map((m)=>  Math.pow(m,2));
+//     newMas.forEach((elem)=> {
+//         let id=  mas2.indexOf(elem);
+//         if (id!=-1){
+//             mas2.splice(id,1);
+//         }else{
+//             result = false;
+//             return;
+//         }
+//     });
+//     return result;
+// }
+//
+//
+
+// Знайти анаграму.
+//     Маєш 2 слова
+// Потрібно знайти чи одне слово складається з тих самих букв шо друге. Букви перевикорситосуватись не можуть.
+//     Ніяких пробілів, цифер і так далі. Тільки букви малого регістру
+//
+// okten -> token ——> TRUE
+// dima -> aimd —-—> TRUE
+// test -> rest ——> FASLE
+// Постарайся зробити без вкладених циклів
+// let str= 'test';
+// let str2= 'qest';
+// console.log(perevirkaStr(str,str2));
+// function perevirkaStr(str,str2) {
+//     if (str.length!==str2.length) return false;
+//     let result =true;
+//     let newMas=str.split('');
+//     let newMas2=str2.split('');
+//
+//     console.log(newMas);
+//     console.log(newMas2);
+//     newMas.forEach((elem)=> {
+//         let id=  newMas2.indexOf(elem);
+//         if (id!=-1){
+//             newMas2.splice(id,1);
+//         }else{
+//             result = false;
+//             return;
+//         }
+//     });
+//     return result;
+// }
+
+
+// Визуализация с Web Audio API
+
+navigator.mediaDevices.getUserMedia({audio: true}).then(stream=>{
+   let aud= document.getElementById('audio');
+    let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    let analyser = audioCtx.createAnalyser();
+    let source = audioCtx.createMediaStreamSource(stream);
+    source.connect(analyser);
+    analyser.connect(aud);
+    aud.connect(audioCtx.destination);
+
+});
+
+</script>
+</body>
+</html>
